@@ -361,3 +361,10 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Stereographic2/DepthImage.bmp
+/Stereographic2/IrregularSizeimage.bmp
+/Stereographic2/IrregularSizeimage_Copy.bmp
+/Stereographic2/RndDotImage.bmp
+/Stereographic2/StereoImage.bmp
+/Stereographic2/Tiled.bmp
+/Stereographic2/Tiled_Copy.bmp
