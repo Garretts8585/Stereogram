@@ -70,8 +70,8 @@ void SGIImage::LoadFromFile_CStyle(const std::string& FileName) {
 	}
 
 	// Load the image
-	unsigned char* Imagebuffer = new unsigned char[ImageSize];
-	fread(Imagebuffer, sizeof(unsigned char), ImageSize, ImageFile);
+	unsigned char* ImageBuffer = new unsigned char[ImageSize];
+	fread(ImageBuffer, sizeof(unsigned char), ImageSize, ImageFile);
 
 	// convert to 2d array
 	for (int y = 0; y < Height; ++y) {
@@ -80,11 +80,12 @@ void SGIImage::LoadFromFile_CStyle(const std::string& FileName) {
 			const int iBuffer = (x * BYTES_PER_COLOR) + (y * StrideSize);
 
 			for (int i = 0; i < BYTES_PER_COLOR; ++i) {
-				ImageBytes[y].push_back(Imagebuffer[iBuffer + i]);
+				ImageBytes[y].push_back(static_cast<unsigned char>(ImageBuffer[iBuffer + i]));
 			}
 		}
 	}
 
+	delete [] ImageBuffer;
 	fclose(ImageFile);
 }
 
